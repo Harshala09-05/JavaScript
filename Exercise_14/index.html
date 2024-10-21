@@ -1,0 +1,126 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <style>
+        body {
+          background-color: black;
+          color: #00FF00;
+          font-family: monospace;
+          font-size: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          flex-direction: column;
+        }
+    
+        .terminal {
+          width: 80%;
+          height: 50%;
+          padding: 10px;
+          border: 2px solid #00FF00;
+        }
+    
+        .message {
+          margin: 10px 0;
+        }
+    
+        .dots::after {
+          content: "";
+          display: inline-block;
+          width: 1ch;
+          animation: blink 1s steps(1) infinite;
+        }
+    
+        @keyframes blink {
+          0% { content: "."; }
+          33% { content: ".."; }
+          66% { content: "..."; }
+        }
+      </style>
+</head>
+
+<body>
+    <!-- create hacking simulator which has green background and it shows these messeges with random delay of 1 to 7 seconds
+     Initializing Hacking....
+     Reading your Files....
+     Password Files detected....
+     Sending all passwords and personal files to server....
+     Cleaning up...
+
+     The three dots must blink so that it looks like a real terminal
+    -->
+<!-- <div class="terminal" id="terminal"> -->
+<!-- Messages will be displayed here -->
+<!-- </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: green;
+        color: white;
+        font-family: sans-serif;
+        font-size: 30px;
+      }
+    </style>
+    <script>
+       
+        const addItem = async (item)=>{
+            await randomDelay();
+            let div = document.createElement("div");
+            div.innerHTML = item;
+            document.body.append(div)
+       }
+        const randomDelay = ()=>{
+            return new Promise((resolve,reject)=>{
+                timeout = 1 + 6 * Math.random()
+                setTimeout(()=>{
+                   resolve()
+                },timeout * 1000);
+            })
+        }
+         async function main(){
+
+       
+        setInterval(()=>{
+            let last = document.body.getElementsByTagName("div");
+            last = last[last.length-1];
+            if(last.innerHTML.endsWith("...")){
+               last.innerHTML = last.innerHTML.slice(0,last.innerHTML.length-3)
+            }
+            else{
+
+                last.innerHTML = last.innerHTML + ".";
+            }
+  
+          },100)
+      let text = [
+        "Initializing Hacking",
+        "Reading your Files",
+        "Password Files detected",
+        "Sending all passwords and personal files to server",
+        "Cleaning up",
+      ];
+
+      for (const item of text) {
+        await addItem(item);
+      }
+    }
+    main()
+    
+    </script>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

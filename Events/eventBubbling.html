@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventBubbling</title>
+    <style>
+        .child{
+            background-color:aliceblue;
+            border: 2px solid black;
+            padding: 14px;
+            margin: 14px;
+            cursor: pointer;
+        }
+        .childContainer{
+            background-color: beige;
+            padding: 14px;
+            margin: 14px;         
+        }
+        .container{
+            background-color: blanchedalmond;
+            padding: 14px;
+            margin: 14px;         
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="childContainer">
+        <div class="child">I am child</div>
+      </div>
+    </div>
+    <script>
+      document.querySelector(".child").addEventListener("click", () => {
+        alert("Child was clicked");
+      });
+      document.querySelector(".childContainer").addEventListener("click", () => {
+        alert("ChildContainer was clicked");
+      });
+      document.querySelector(".container").addEventListener("click", () => {
+        alert("container was clicked");
+      });
+function getRandomColor(){
+    let val1 = Math.cell(0 + Math.random() * 255);
+    let val2 = Math.cell(0 + Math.random() * 255);
+    let val3 = Math.cell(0 + Math.random() * 255);
+    return `rgb(${val1},${val2},${val3})`;
+}
+
+        setInterval(()=>{
+             document.querySelector(".childContainer").style.background = "getRandomColor()";
+        },1000);
+
+
+    </script>
+  </body>
+</html>

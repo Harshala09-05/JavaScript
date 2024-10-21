@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 23px;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 23px;
+            height: 45px;
+            width: 45px;
+            border: 2px solid black;
+          
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    given 5 boxes assign random color and a random background to each box usimg DOM
+     -->
+    <div class="container">
+        <div id="first" class="box">Box</div>
+        <div class="box">Box</div>
+        <div id="third" class="box">Box</div>
+        <div class="box">Box</div>
+        <div class="box">Box</div>
+    </div>
+    <script>
+        document.querySelectorAll(".box").forEach(e =>{
+            e.style.backgroundColor = "paleGreen"
+        })
+        document.getElementById("first").style.backgroundColor = "red"
+        document.getElementById("first").style.color = "purple"
+
+        document.querySelectorAll(".box").forEach(e =>{
+            e.style.color = "blue"
+        })
+        document.querySelector("#third").style.backgroundColor = "pink"
+
+    </script>
+</body>
+</html>
